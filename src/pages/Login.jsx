@@ -80,6 +80,13 @@ function LoginPage() {
             <div className="container    rounded-circle">
               <img src={LarakLogo} alt="" srcset="" width={250} />
             </div>
+
+            <div
+              className="container text-center text-light"
+              style={{ fontSize: "28px" }}
+            >
+              Biker App
+            </div>
             <div className="row d-flex justify-content-center align-items-center pt-4  m-1">
               <div className="col-md-6 m-1">
                 <div className="container-fluid">
@@ -148,16 +155,6 @@ function LoginPage() {
               }}
             >
               <b style={{ fontWeight: "bold" }}> دخول</b>
-            </button>
-            <br />
-            <button
-              className="btn p-4"
-              style={{ color: "white", fontSize: "16px" }}
-              onClick={() => {
-                navigate("/sign_up", { replace: true });
-              }}
-            >
-              <b style={{ fontWeight: "normal" }}> تسجيل مستخدم جديد</b>
             </button>
           </div>
         </form>

@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { FormatDateTime, Larak_System_URL } from "../../globals";
 import Loading from "../Loading";
+import "@flaticon/flaticon-uicons/css/all/all.css"; // Import Flaticon CSS
 
 function ClientOrdersPage() {
   const navigate = useNavigate();
@@ -52,7 +53,7 @@ function ClientOrdersPage() {
       <NavBar />
       {loading ? (
         <Loading />
-      ) : (
+      ) : data?.length !== 0 ? (
         <div
           className="container-fluid"
           style={{
@@ -95,6 +96,23 @@ function ClientOrdersPage() {
               ))}
             </tbody>
           </table>
+        </div>
+      ) : (
+        <div
+          className="container"
+          style={{
+            fontSize: "24px",
+            fontWeight: "bold",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: window.innerHeight,
+          }}
+        >
+          <i
+            class="fi fi-rs-person-dolly-empty"
+            style={{ fontSize: "50px" }}
+          ></i>
         </div>
       )}
     </>

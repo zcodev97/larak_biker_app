@@ -51,67 +51,27 @@ function NavBar() {
                 <p style={{ color: "#8c8c8c" }}>
                   <i class="fi fi-rr-home" style={{ fontSize: "20px" }}></i>
                   <br />
-                  <p style={{ fontSize: "10px" }}>Home</p>
+                  <p style={{ fontSize: "14px" }}>الطلبات الحالية</p>
                 </p>
               </Link>
             </li>
-
-            <li className="nav-item rounded text flex-grow-1 m-0">
-              <Link className={normalStyle} to="/all_client_products">
-                <p style={{ color: "#8c8c8c" }}>
-                  <i class="fi fi-rr-boxes" style={{ fontSize: "20px" }}></i>
-                  <br />
-                  <p style={{ fontSize: "10px" }}>Items</p>
-                </p>
-              </Link>
-            </li>
-            {/* <li className="nav-item rounded text flex-grow-1 m-0">
-              <Link className={normalStyle} to="/client_cateogries">
-                <p style={{ color: "#8c8c8c" }}>
-                  <i class="fa fa-object-group fa-3x" aria-hidden="true"></i>
-                  <br />
-                  <p style={{ fontSize: "10px" }}>Categories</p>
-                </p>
-              </Link>
-            </li> */}
 
             <li className="nav-item rounded text flex-grow-1 m-0">
               <Link className={normalStyle} to={"/client_orders"}>
                 <p style={{ color: "#8c8c8c" }}>
-                  <i
-                    class="fi fi-rr-list"
-                    style={{
-                      fontSize: "20px",
-                      // border: "1px",
-                      // borderStyle: "solid",
-                      // padding: "5px",
-                      // borderRadius: "10px",
-                    }}
-                  ></i>
+                  <i class="fi fi-rr-boxes" style={{ fontSize: "20px" }}></i>
                   <br />
-                  <p style={{ fontSize: "10px" }}>Orders</p>
+                  <p style={{ fontSize: "14px" }}>الطلبات السابقة</p>
                 </p>
               </Link>
             </li>
 
-            <li className="nav-item rounded text flex-grow-1 m-0">
-              <Link className={normalStyle} to="/client_cart">
-                <p style={{ color: "#8c8c8c" }}>
-                  <i
-                    className="fi fi-rr-shopping-cart"
-                    style={{ fontSize: "20px" }}
-                  ></i>
-                  <br />
-                  <p style={{ fontSize: "10px" }}>Cart</p>
-                </p>
-              </Link>
-            </li>
             <li className="nav-item rounded text flex-grow-1 m-0">
               <Link className={normalStyle} to="/client_profile">
                 <p style={{ color: "#8c8c8c" }}>
                   <i class="fi fi-rr-user" style={{ fontSize: "20px" }}></i>
                   <br />
-                  <p style={{ fontSize: "10px" }}>Profile</p>
+                  <p style={{ fontSize: "14px" }}>معلوماتي</p>
                 </p>
               </Link>
             </li>
