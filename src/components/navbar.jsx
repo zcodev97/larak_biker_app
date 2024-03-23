@@ -47,9 +47,9 @@ function NavBar() {
           {/* Start of the navbar links */}
           <ul className="navbar-nav d-flex flex-row w-100">
             <li className="nav-item flex-grow-1 text-center m-0">
-              <Link className={normalStyle} to="/client_products">
+              <Link className={normalStyle} to="/biker_current_orders">
                 <p style={{ color: "#8c8c8c" }}>
-                  <i class="fi fi-rr-home" style={{ fontSize: "20px" }}></i>
+                  <i className="fi fi-rr-home" style={{ fontSize: "20px" }}></i>
                   <br />
                   <p style={{ fontSize: "14px" }}>الطلبات الحالية</p>
                 </p>
@@ -57,9 +57,12 @@ function NavBar() {
             </li>
 
             <li className="nav-item rounded text flex-grow-1 m-0">
-              <Link className={normalStyle} to={"/client_orders"}>
+              <Link className={normalStyle} to={"/biker_orders"}>
                 <p style={{ color: "#8c8c8c" }}>
-                  <i class="fi fi-rr-boxes" style={{ fontSize: "20px" }}></i>
+                  <i
+                    className="fi fi-rr-boxes"
+                    style={{ fontSize: "20px" }}
+                  ></i>
                   <br />
                   <p style={{ fontSize: "14px" }}>الطلبات السابقة</p>
                 </p>
@@ -69,7 +72,7 @@ function NavBar() {
             <li className="nav-item rounded text flex-grow-1 m-0">
               <Link className={normalStyle} to="/client_profile">
                 <p style={{ color: "#8c8c8c" }}>
-                  <i class="fi fi-rr-user" style={{ fontSize: "20px" }}></i>
+                  <i className="fi fi-rr-user" style={{ fontSize: "20px" }}></i>
                   <br />
                   <p style={{ fontSize: "14px" }}>معلوماتي</p>
                 </p>

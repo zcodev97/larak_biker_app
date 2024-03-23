@@ -6,7 +6,7 @@ import { FormatDateTime, Larak_System_URL } from "../../globals";
 import Loading from "../Loading";
 import "@flaticon/flaticon-uicons/css/all/all.css"; // Import Flaticon CSS
 
-function BikerOrdersPage() {
+function BikerCurrentOrdersPage() {
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
@@ -15,7 +15,7 @@ function BikerOrdersPage() {
   async function clientOrders() {
     setLoading(true);
 
-    await fetch(Larak_System_URL + "api/biker-orders/", {
+    await fetch(Larak_System_URL + "api/biker-current-orders/", {
       method: "GET",
       headers: {
         accept: "application/json",
@@ -120,4 +120,4 @@ function BikerOrdersPage() {
   );
 }
 
-export default BikerOrdersPage;
+export default BikerCurrentOrdersPage;

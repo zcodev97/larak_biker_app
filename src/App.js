@@ -4,22 +4,13 @@ import Loading from "./pages/Loading";
 import { Larak_System_URL } from "./globals";
 import LoginPage from "./pages/Login";
 import NoPage from "./pages/NoPage";
-import UsersPage from "./pages/users";
-import ClientProductsPage from "./pages/client/products";
-import ClientCartPage from "./pages/client/cart";
-import ClientOrdersPage from "./pages/client/orders";
-import ClientProfilePage from "./pages/client/profile";
-import ClientCategoriesPage from "./pages/client/cateogries";
-import ProductsCategoryPage from "./pages/client/products_category";
-import ProductDetailsPage from "./pages/client/product_details";
-import AllClientProductsPage from "./pages/client/all_products";
-import SignUpPage from "./pages/SignUp";
+import BikerOrdersPage from "./pages/client/orders";
+
 import ClientProfileDetailsPage from "./pages/client/profileDetails";
 import "leaflet/dist/leaflet.css";
-import ManagerEmployeesPage from "./pages/client/managerEmployees";
-import AddEmployeePage from "./pages/client/addEmployee";
-import EmployeeDetailsPage from "./pages/client/employeeDetails";
 import OrderDetailsPage from "./pages/client/order_details";
+import ClientProfilePage from "./pages/client/profile";
+import BikerCurrentOrdersPage from "./pages/client/current_orders";
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -90,21 +81,18 @@ function App() {
                   loading ? (
                     <Loading />
                   ) : loggedIn ? (
-                    <ClientProductsPage />
+                    <BikerOrdersPage />
                   ) : (
                     <LoginPage />
                   )
                 }
               />
 
+              <Route path="/biker_orders" element={<BikerOrdersPage />} />
               <Route
-                path="/all_client_products"
-                element={<AllClientProductsPage />}
+                path="/biker_current_orders"
+                element={<BikerCurrentOrdersPage />}
               />
-              <Route path="/client_products" element={<ClientProductsPage />} />
-              <Route path="/product_details" element={<ProductDetailsPage />} />
-              <Route path="/client_cart" element={<ClientCartPage />} />
-              <Route path="/client_orders" element={<ClientOrdersPage />} />
               <Route
                 path="/client_order_details"
                 element={<OrderDetailsPage />}
@@ -114,26 +102,8 @@ function App() {
                 path="/client_profile_details"
                 element={<ClientProfileDetailsPage />}
               />
-              <Route
-                path="/client_cateogries"
-                element={<ClientCategoriesPage />}
-              />
-              <Route
-                path="/client_products_category"
-                element={<ProductsCategoryPage />}
-              />
-              <Route
-                path="/employees_list"
-                element={<ManagerEmployeesPage />}
-              />
-              <Route
-                path="/update_employee_password"
-                element={<EmployeeDetailsPage />}
-              />
-              <Route path="/add_employee" element={<AddEmployeePage />} />
 
               <Route path="/login" element={<LoginPage />} />
-              <Route path="/sign_up" element={<SignUpPage />} />
 
               <Route path="*" element={<NoPage />} />
             </Routes>

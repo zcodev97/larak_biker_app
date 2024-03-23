@@ -32,54 +32,23 @@ function ClientProfilePage() {
           <b>{localStorage.getItem("username")}</b>
         </p>
 
-        <div className="container text-end   mt-2 mb-1">
-          <div
-            className="btn btn-light p-4"
-            style={{
-              fontSize: "20px",
-              color: "#de3d33",
-              fontWeight: "bold",
-              display:
-                localStorage.getItem("user_type") === "user" ? "none" : "block",
-            }}
-            onClick={() => {
-              navigate("/client_profile_details");
-            }}
-          >
-            تفاصيل المستخدم
-          </div>
-        </div>
-        {/* <hr
-        style={{
-          display:
-            localStorage.getItem("user_type") === "user" ? "none" : "block",
-        }}
-      /> */}
-        <div className="container text-center   mt-2 mb-1">
-          <div
-            className="btn btn-light p-4"
-            style={{
-              fontSize: "20px",
-              color: "#de3d33",
-              fontWeight: "bold",
-              display:
-                localStorage.getItem("user_type") === "user" ? "none" : "block",
-            }}
-            onClick={() => {
-              navigate("/employees_list");
-            }}
-          >
-            الموظفين
-          </div>
-        </div>
-
-        <div className="container text-end mt-4" style={{ fontSize: "20px" }}>
+        <div
+          className="container text-center mt-4"
+          style={{
+            fontSize: "24px",
+            fontWeight: "bold",
+            position: "absolute",
+            bottom: "0",
+            left: "0",
+            marginBottom: "80px",
+          }}
+        >
           <div className="container  text-center p-4">
-            Role : {localStorage.getItem("user_type")}
+            {localStorage.getItem("user_type")}
           </div>
 
           <div
-            className="btn btn-light text-danger p-3"
+            className="container btn btn-danger text-light p-3"
             onClick={handleLogout}
             style={{ fontSize: "20px" }}
           >
