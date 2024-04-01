@@ -20,7 +20,7 @@ function ClientProfilePage() {
 
       <div className="container-fluid">
         <p
-          className=" pt-4  text-end "
+          className="pt-4  text-end "
           style={{ fontWeight: "bold", fontSize: "24px" }}
         >
           الاعدادات

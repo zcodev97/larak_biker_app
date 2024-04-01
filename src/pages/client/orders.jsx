@@ -25,7 +25,7 @@ function BikerOrdersPage() {
     })
       .then((response) => response.json())
       .then((data) => {
-        if (data.detail === "Given token not valid for any token type") {
+        if (data.detail) {
           navigate("/login", { replace: true });
           return;
         }

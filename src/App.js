@@ -5,7 +5,6 @@ import { Larak_System_URL } from "./globals";
 import LoginPage from "./pages/Login";
 import NoPage from "./pages/NoPage";
 import BikerOrdersPage from "./pages/client/orders";
-
 import ClientProfileDetailsPage from "./pages/client/profileDetails";
 import "leaflet/dist/leaflet.css";
 import OrderDetailsPage from "./pages/client/order_details";
@@ -36,9 +35,10 @@ function App() {
       .then((response) => response.json())
       .then((data) => {
         if (data.detail) {
-          alert(data.detail);
+          // alert(data.detail);
           setLoggedIn(false);
-          console.log(setLoggedIn);
+          // console.log(setLoggedIn);
+
           return;
         }
         setLoggedIn(true);

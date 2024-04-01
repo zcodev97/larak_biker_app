@@ -26,22 +26,23 @@ function LoginPage() {
       .then((response) => response.json())
       .then((data) => {
         if (data.detail) {
-          alert(data.detail);
+          // alert(data.detail);
           setLoading(false);
           return;
+        } else {
+          // console.log(data);
+          window.username = data.user.username;
+          window.username_id = data.user.id;
+          // window.groups = data.user.groups[0];
+          localStorage.setItem("token", data.access);
+          localStorage.setItem("username", data.user.username);
+          localStorage.setItem("username_id", data.user.id);
+
+          localStorage.setItem("user_type", data.user.user_type);
+          localStorage.setItem("supervisor", data.user.supervisor);
+
+          navigate("/biker_orders", { replace: true });
         }
-        console.log(data);
-        window.username = data.user.username;
-        window.username_id = data.user.id;
-        // window.groups = data.user.groups[0];
-        localStorage.setItem("token", data.access);
-        localStorage.setItem("username", data.user.username);
-        localStorage.setItem("username_id", data.user.id);
-
-        localStorage.setItem("user_type", data.user.user_type);
-        localStorage.setItem("supervisor", data.user.supervisor);
-
-        navigate("/client_products", { replace: true });
       })
       .catch((error) => {
         alert(error);
