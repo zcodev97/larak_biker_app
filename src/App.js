@@ -10,6 +10,7 @@ import "leaflet/dist/leaflet.css";
 import OrderDetailsPage from "./pages/client/order_details";
 import ClientProfilePage from "./pages/client/profile";
 import BikerCurrentOrdersPage from "./pages/client/current_orders";
+import CompleteOrderDetailsPage from "./pages/client/complete_order_details";
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -72,7 +73,7 @@ function App() {
   return (
     <>
       {isOnline ? (
-        <div className="container-fluid" style={{ height: "100vh" }}>
+        <div style={{ height: "100vh", width: window.innerWidth }}>
           <BrowserRouter>
             <Routes>
               <Route
@@ -97,11 +98,15 @@ function App() {
                 path="/client_order_details"
                 element={<OrderDetailsPage />}
               />
-              <Route path="/client_profile" element={<ClientProfilePage />} />
               <Route
+                path="/complete_order_details"
+                element={<CompleteOrderDetailsPage />}
+              />
+              <Route path="/client_profile" element={<ClientProfilePage />} />
+              {/* <Route
                 path="/client_profile_details"
                 element={<ClientProfileDetailsPage />}
-              />
+              /> */}
 
               <Route path="/login" element={<LoginPage />} />
 

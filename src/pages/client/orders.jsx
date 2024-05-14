@@ -33,8 +33,8 @@ function BikerOrdersPage() {
           alert(data.detail);
           return;
         }
-        console.log(data);
-        setData(data);
+        console.log(data.results);
+        setData(data.results);
       })
       .catch((error) => {
         alert(error);
@@ -69,7 +69,7 @@ function BikerOrdersPage() {
             }}
           >
             <tbody style={{ fontSize: "16px" }}>
-              {data.reverse().map((d) => (
+              {data?.map((d) => (
                 <tr
                   key={d.id}
                   className="text-center"
@@ -80,17 +80,17 @@ function BikerOrdersPage() {
                     margin: "5px",
                   }}
                   onClick={() => {
-                    navigate("/client_order_details", { state: d });
+                    navigate("/complete_order_details", { state: d });
                   }}
                 >
                   <td className="text-end">
                     <b> {d.order_id} </b> رقم الطلب
                     <p>{FormatDateTime(d.created_at)}</p>
+                    <p>{d?.status?.biker_status.delivered}</p>
                     <p>
-                      {d?.status[0]?.manager_status !== undefined
-                        ? d?.status[0]?.manager_status.accept
-                        : d?.status[0]?.vendor_status.accept}
-                      {" : "} حالة الطلب
+                      {d?.status?.biker_status.delivered
+                        ? "تم التوصيل"
+                        : "لم يتم التوصيل"}
                     </p>
                   </td>
                 </tr>

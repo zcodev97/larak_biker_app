@@ -103,7 +103,7 @@ function MapComponent(location) {
   );
 }
 
-function OrderDetailsPage() {
+function CompleteOrderDetailsPage() {
   const location = useLocation();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
@@ -114,56 +114,6 @@ function OrderDetailsPage() {
     (accumulator, currentValue) => accumulator + currentValue,
     0
   );
-
-  async function updateOrder(title) {
-    setLoading(true);
-
-    let status = location.state.status;
-
-    if (title) {
-      status.biker_status.delivered = true;
-      status.arrived_status = true;
-      status.biker_status.accepted_date = new Date();
-    } else {
-      status.biker_status.delivered = false;
-      status.arrived_status = false;
-      status.biker_status.rejected_date = new Date();
-    }
-
-    let dataTosend = JSON.stringify({
-      status: status,
-    });
-
-    await fetch(Larak_System_URL + "update_order/" + location.state.id, {
-      method: "PATCH",
-      headers: {
-        accept: "application/json",
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-      body: dataTosend,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.detail === "Given token not valid for any token type") {
-          navigate("/login", { replace: true });
-          return;
-        }
-        if (data.detail) {
-          alert(data.detail);
-          return;
-        }
-      })
-      .catch((error) => {
-        alert(error);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-    window.cart = undefined;
-    setLoading(false);
-    navigate("/biker_orders", { replace: true });
-  }
 
   return (
     <>
@@ -244,30 +194,6 @@ function OrderDetailsPage() {
                 </tr>
               ))}
             </tbody>
-            <div
-              className="container text-center"
-              style={{ display: "flex", justifyContent: "space-around" }}
-            >
-              <button
-                className="btn btn-success "
-                style={{ fontSize: "18px" }}
-                onClick={() => {
-                  updateOrder(true);
-                }}
-              >
-                تم التوصيل
-              </button>
-
-              <button
-                className="btn btn-danger "
-                style={{ fontSize: "18px" }}
-                onClick={() => {
-                  updateOrder(false);
-                }}
-              >
-                لم يتم التوصيل
-              </button>
-            </div>
           </table>
         </div>
       </div>
@@ -275,4 +201,4 @@ function OrderDetailsPage() {
   );
 }
 
-export default OrderDetailsPage;
+export default CompleteOrderDetailsPage;
